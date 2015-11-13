@@ -29,12 +29,8 @@ var paths = {
 }
 // Flags
 var isProduction = true;
-var sassStyle = 'compressed';
-var sourceMap = false;
 
 if(gutil.env.dev === true) {
-	sassStyle = 'expanded';
-	sourceMap = true;
 	isProduction = false;
 }
 
@@ -54,11 +50,11 @@ gulp.task('appScripts', function() {
 			'site/app/js/app.js',
 			'**/*.js'
 		]))
-		.pipe(plugins.sourcemaps.init())
+		.pipe(isProduction ? gutil.noop() : plugins.sourcemaps.init())
 			.pipe(plugins.concat('playground.js'))
 			.pipe(gulp.dest(paths.dest.js))
 			.pipe(isProduction ? plugins.uglify({mangle:false}) : gutil.noop())
-		.pipe(plugins.sourcemaps.write())
+		.pipe(isProduction ? gutil.noop() : plugins.sourcemaps.write())
 		.pipe(gulp.dest(paths.dest.js));
 });
 gulp.task('pluginScripts', function() {
@@ -66,11 +62,11 @@ gulp.task('pluginScripts', function() {
 		'node_modules/angular/angular.js',
 		'node_modules/angular-ui-router/release/angular-ui-router.js'
 	])
-		.pipe(plugins.sourcemaps.init())
+		.pipe(isProduction ? gutil.noop() : plugins.sourcemaps.init())
 			.pipe(plugins.concat('plugins.js'))
 			.pipe(gulp.dest(paths.dest.js))
 			.pipe(isProduction ? plugins.uglify({mangle:false}) : gutil.noop())
-		.pipe(plugins.sourcemaps.write())
+		.pipe(isProduction ? gutil.noop() : plugins.sourcemaps.write())
 		.pipe(gulp.dest(paths.dest.js));
 });
 gulp.task('css', function() {
