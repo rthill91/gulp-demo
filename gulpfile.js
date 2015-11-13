@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var stylish = require('jshint-stylish');
 
 var gulpConfig = require('./gulp-config'),
 	base = gulpConfig.base,
@@ -14,11 +15,7 @@ var plugins = require("gulp-load-plugins")({
 });
 
 // Flags
-var isProduction = true;
-
-if(gutil.env.dev === true) {
-	isProduction = false;
-}
+var isProduction = (gutil.env.dev ? false : true);
 
 /**
 	Helper Functions
@@ -67,6 +64,11 @@ gulp.task('templates', function() {
 		.pipe(plugins.angularTemplatecache({standalone:true}))
 		.pipe(gulp.dest(paths.dest.js));
 });
+gulp.task('lint', function() {
+	return gulp.src(paths.src.js + '**/*.js')
+		.pipe(plugins.jshint())
+		.pipe(plugins.jshint.reporter(stylish));
+})
 
 /**
 	Watch & Default
@@ -83,4 +85,10 @@ gulp.task('watch', ['default'], function() {
 	});
 });
 
-gulp.task('default', ['appScripts', 'pluginScripts', 'css', 'templates']);
+gulp.task('default', ['appScripts', 'pluginScripts', 'css', 'templates'], function() {
+	// gulp.run is deprecated and will be removed in gulp 4.0
+	// At the release of 4.0 it will be replaced with orchestrator.start
+	// perhaps there is a better way to structure these tasks so that neither
+	// is necessary?
+	gulp.run('lint');
+});

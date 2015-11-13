@@ -13,5 +13,7 @@ module.exports = {
 			styles: 'site/app/sass/',
 			views: 'site/app/views/'
 		}
-	}
+	},
+	appScripts: 'playground.js',
+	pluginScripts: 'plugins.js'
 }
