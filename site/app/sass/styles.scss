@@ -1,0 +1,12 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+$subtitle-color: #007;
+
+body {
+	font: 100% $font-stack;
+	color: $primary-color;
+}
+
+h2 {
+	color: $subtitle-color;
+}

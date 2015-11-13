@@ -1,0 +1,2 @@
+angular.module("templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("page1.tmpl.html","<div>\r\n	<h2>{{title}}</h2>\r\n</div>\r\n");
+$templateCache.put("page2.tmpl.html","<div>\r\n	<h2>{{title}}</h2>\r\n</div>\r\n");}]);

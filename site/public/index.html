@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Playground</title>
+	<link rel="stylesheet" href="./css/styles.css"></link>
+	<script src="./js/plugins.js"></script>
+	<script src="./js/templates.js"></script>
+	<script src="./js/playground.js"></script>
+</head>
+<body ng-app="app">
+	<div ng-controller="mainCtrl">
+		<h1>{{title}}</h1>
+		<div ui-view></div>
+		<button ui-sref="page1">Page 1</button>
+		<button ui-sref="page2">Page 2</button>
+	</div>
+</body>
+</html>
