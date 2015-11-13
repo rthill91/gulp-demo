@@ -1,6 +1,11 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 
+var gulpConfig = require('./gulp-config'),
+	base = gulpConfig.base,
+	paths = gulpConfig.paths;
+
+
 // Seeks out and requires plugins begining with 'gulp'
 var plugins = require("gulp-load-plugins")({
 	pattern: ['gulp-*', 'gulp.*'],
@@ -8,25 +13,6 @@ var plugins = require("gulp-load-plugins")({
 	camelize: true
 });
 
-/**
-	Variables
-**/
-// Paths
-var base = {
-	src: 'site/app/',
-	dest: 'site/public/'
-}
-var paths = {
-	dest: {
-		js: base.dest + 'js/',
-		styles: base.dest + 'css/'
-	},
-	src: {
-		js: base.src + 'js/',
-		styles: base.src + 'sass/',
-		views: base.src + 'views/'
-	}
-}
 // Flags
 var isProduction = true;
 
