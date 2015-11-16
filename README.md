@@ -2,7 +2,8 @@ Gulp Demo
 =========
 
 ### Description
-A simple single-page application using AngularJS & UI.Router using gulp for all build processes
+A simple single-page application using AngularJS & UI.Router using gulp for all build processes.
+This is intended to serve as a testing ground for better practices in front-end development through the use of automated building & unit testing.
 
 ### Gulp Tasks
 	* appScripts
