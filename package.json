@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server ./site/public/",
-    "test": "http-server"
+    "test": "start chrome ./spec/SpecRunner.html"
   },
   "author": "Ryan Hill",
   "license": "ISC",
