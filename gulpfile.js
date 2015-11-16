@@ -70,7 +70,6 @@ gulp.task('lint', function() {
 		.pipe(plugins.jshint.reporter(stylish));
 });
 
-
 /**
 	Watch & Default
 **/
