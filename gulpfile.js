@@ -68,7 +68,8 @@ gulp.task('lint', function() {
 	return gulp.src(paths.src.js + '**/*.js')
 		.pipe(plugins.jshint())
 		.pipe(plugins.jshint.reporter(stylish));
-})
+});
+
 
 /**
 	Watch & Default

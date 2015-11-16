@@ -4,12 +4,13 @@
   "description": "A playground for the testing of new/better gulp tasks",
   "main": "index.js",
   "scripts": {
-    "start": "http-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server ./site/public/",
+    "test": "http-server"
   },
   "author": "Ryan Hill",
   "license": "ISC",
   "devDependencies": {
+    "angular-mocks": "^1.4.7",
     "gulp": "^3.9.0",
     "gulp-angular-templatecache": "^1.8.0",
     "gulp-concat": "^2.6.0",
@@ -22,6 +23,7 @@
     "gulp-uglify": "^1.4.2",
     "gulp-uglifycss": "^1.0.4",
     "gulp-util": "^3.0.7",
+    "jasmine": "^2.3.2",
     "jshint-stylish": "^2.0.1"
   },
   "dependencies": {
