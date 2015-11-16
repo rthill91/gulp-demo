@@ -7,6 +7,15 @@ describe('Page 1 Controller', function() {
 		});
 	});
 
+	describe('$scope.title', function() {
+		it('should be \'Hello Page 1\'', function() {
+			var $scope = {};
+			var controller = $controller('page1Ctrl', {$scope: $scope});
+
+			expect($scope.title).toEqual('Hello Page 1!');
+		});
+	});
+
 	describe('$scope.greaterThan', function() {
 		it("Says whether or not x > y", function() {
 			var $scope = {};
