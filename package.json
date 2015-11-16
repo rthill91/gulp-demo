@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server ./site/public/",
-    "test": "start chrome ./spec/SpecRunner.html"
+	"test": "karma start --single-run"
   },
   "author": "Ryan Hill",
   "license": "ISC",
@@ -25,7 +25,12 @@
     "gulp-uglifycss": "^1.0.4",
     "gulp-util": "^3.0.7",
     "jasmine": "^2.3.2",
-    "jshint-stylish": "^2.0.1"
+    "jshint-stylish": "^2.0.1",
+    "karma": "^0.13.15",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-ie-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6"
   },
   "dependencies": {
     "angular": "^1.4.7",

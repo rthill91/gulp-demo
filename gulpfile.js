@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var stylish = require('jshint-stylish');
+var Server = require('karma').Server;
 
 var gulpConfig = require('./gulp-config'),
 	base = gulpConfig.base,
@@ -68,6 +69,12 @@ gulp.task('lint', function() {
 	return gulp.src(paths.src.js + '**/*.js')
 		.pipe(plugins.jshint())
 		.pipe(plugins.jshint.reporter(stylish));
+});
+gulp.task('test', function(done) {
+	new Server({
+		configFile: __dirname + '/karma.conf.js',
+		singleRun: true
+	}, done).start();
 });
 
 /**
